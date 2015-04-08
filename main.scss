@@ -6,6 +6,10 @@
    user-select: none;
 }
 
+.Pixel-Fill {
+   background-color: red;
+}
+
 #Pixel-Grid {
    text-align: center;
    margin-top: 100px;
@@ -17,7 +21,6 @@
          display: inline-block;
          width: 20px;
          height: 20px;
-         background-color: blue;
          border: 1px solid black;
       }
       margin-top: -2px;

@@ -1,29 +1,7 @@
-var grid = document.getElementById('Pixel-Grid');
+GenerateGrid()
 
-function GenerateInnerRow() {
-   var rowFrag = document.createDocumentFragment();
-   var innerRow = document.createElement("div");
-   innerRow.innerHTML = "<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>"
-
-   while (innerRow.firstChild) {
-      rowFrag.appendChild(innerRow.firstChild);
-   }
-
-   return rowFrag
-}
-
-function GenerateRow() {
-   var rowFrag = document.createDocumentFragment();
-   var row = document.createElement("div");
-   row.innerHTML = "<div></div>"
-
-   while (row.firstChild) {
-      rowFrag.appendChild(row.firstChild);
-   }
-
-   rowFrag.children[0].appendChild(GenerateInnerRow());
-
-   grid.insertBefore(rowFrag, grid.childNodes[0]);
-}
-
-GenerateRow()
+// 3, 3
+var gridRows = grid.childNodes;
+var selectedRow = gridRows[2];
+var selectedCell = selectedRow.childNodes[2];
+selectedCell.className = "Pixel-Fill";
