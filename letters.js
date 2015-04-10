@@ -85,8 +85,8 @@ function findLetter(focalPoint, letter) {
       }
    } else if (x == "o") { // Letter o
       return {
-         points: [[fpx,fpy+1],[fpx,fpy+2],[fpx,fpy+3],[fpx,fpy+4],[fpx+1,fpy+5],[fpx+2,fpy+5],[fpx+3,fpy+5],[fpx+4,fpy+1],
-                  [fpx+4,fpy+2],[fpx+4,fpy+3],[fpx+4,fpy+4],[fpx+1,fpy],[fpx+2,fpy],[fpx+3,fpy]],
+         points: [fp,[fpx,fpy+1],[fpx,fpy+2],[fpx,fpy+3],[fpx,fpy+4],[fpx,fpy+5],[fpx+1,fpy+5],[fpx+2,fpy+5],[fpx+3,fpy+5],[fpx+4,fpy+5],
+                  [fpx+4,fpy],[fpx+4,fpy+1],[fpx+4,fpy+2],[fpx+4,fpy+3],[fpx+4,fpy+4], [fpx+1,fpy],[fpx+2,fpy],[fpx+3,fpy]],
          letter_width: 5
       }
    } else if (x == "p") { // Letter p
