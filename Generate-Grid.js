@@ -9,7 +9,7 @@ function GenerateInnerRow() {
       // Appends 32 Divs that act has cells
       var count = 0
       var divArr = ""
-      while (count != 32) {
+      while (count != 48) {
          divArr += "<div></div>";
          count += 1;
       }
