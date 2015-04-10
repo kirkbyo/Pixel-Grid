@@ -1,4 +1,4 @@
-function findLetter(letter, focalPoint) {
+function findLetter(focalPoint, letter) {
    var x = letter.toLowerCase()
 
    var fp = focalPoint;
@@ -140,7 +140,7 @@ function findLetter(letter, focalPoint) {
       return {
          points: [fp,[fpx+1,fpy+1],[fpx+2,fpy+2],[fpx+3,fpy+1],[fpx+4,fpy],[fpx+2,fpy+3],[fpx+1,fpy+4],
                   [fpx,fpy+5],[fpx,fpy+5],[fpx+3,fpy+4],[fpx+4,fpy+5]],
-         letter_width: 4
+         letter_width: 5
       }
    } else if (x == "y") {
       return {
@@ -158,7 +158,7 @@ function findLetter(letter, focalPoint) {
 }
 
 function drawLetterAtXY(focalPoint, letter) {
-   var letter = findLetter(letter, focalPoint);
+   var letter = findLetter(focalPoint, letter);
    var letterPoints = letter.points
    for (var row=0; row<letterPoints.length; row++) {
       var points = letter.points[row]; // Selecting the individual Cordinates for that Point
@@ -168,16 +168,26 @@ function drawLetterAtXY(focalPoint, letter) {
       var selectedCell = selectedRow.childNodes[points[0] - 1];
       selectedCell.style.backgroundColor = "red";
    }
-   var letter_width = letter.letter_width
-   return [letter_width]
 }
 
-function drawLetters(startPoint,letters) {
-   var letters = letters.split("");
-   for (var index=0; index<letters.length; index++) {
-      var letter = letters[index];
-      if (index == 0) {
-         var properties = drawLetterAtXY(startPoint)
+function drawWord(startPoint,letters) {
+   var cords = []; // Cords to hold all the letters position
+   var letters = letters.split(""); // Converts passed Word to Array
+   for (var index=0; index<letters.length; index++) { // Loops threw each letter
+      var letter = letters[index]; // Assigns a letter from the letters Array
+      if (index == 0) { // Checks if this is the first time
+         drawLetterAtXY(startPoint, letter); // Draws the Letter
+
+         // Sets Next Cords
+         var letterObject = findLetter(startPoint, letter); // Finds Letters Object
+         var letter_width = letterObject.letter_width // Gets Objects Width
+         cords.push([startPoint[0] + letter_width + 1, startPoint[1]]); // Updates the array with the next position
+      } else {
+         var last = cords[cords.length -1]; // Finds the last element in the array
+         drawLetterAtXY(last, letter); // Draws the letter at the next location
+         var letterObject = findLetter(last, letter); // Gets Letter Object
+         var letter_width = letterObject.letter_width; // Gets width of the letter
+         cords.push([last[0] + letter_width + 1, last[1]]); // Updates array with the next position
       }
    }
 }
