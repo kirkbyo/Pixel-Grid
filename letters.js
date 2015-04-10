@@ -129,20 +129,20 @@ function findLetter(focalPoint, letter) {
          points: [fp,[fpx,fpy+1],[fpx,fpy+2],[fpx+1,fpy+3],[fpx+1,fpy+4],[fpx+2,fpy+5],[fpx+3,fpy+4],[fpx+3,fpy+3],[fpx+4,fpy+2],[fpx+4,fpy+1],[fpx+4,fpy]],
          letter_width: 5
       }
-   } else if (x == "w") {
+   } else if (x == "w") { // Letter w
       return {
          points: [fp,[fpx,fpy+1],[fpx,fpy+2],[fpx+1,fpy+3],[fpx+1,fpy+4],[fpx+2,fpy+5],
                   [fpx+3,fpy+4],[fpx+3,fpy+3],[fpx+4,fpy+5],[fpx+5,fpy+4],[fpx+5,fpy+3],[fpx+6,fpy+2],[fpx+6,fpy+1],[fpx+6,fpy]],
          letter_width: 7
 
       }
-   } else if (x == "x") {
+   } else if (x == "x") { // Letter x
       return {
          points: [fp,[fpx+1,fpy+1],[fpx+2,fpy+2],[fpx+3,fpy+1],[fpx+4,fpy],[fpx+2,fpy+3],[fpx+1,fpy+4],
                   [fpx,fpy+5],[fpx,fpy+5],[fpx+3,fpy+4],[fpx+4,fpy+5]],
          letter_width: 5
       }
-   } else if (x == "y") {
+   } else if (x == "y") { // Letter y
       return {
          points: [fp,[fpx,fpy+1],[fpx+1,fpy+2],[fpx+2,fpy+3],[fpx+3,fpy+2],[fpx+4,fpy+1],[fpx+4,fpy],[fpx+2,fpy+4],[fpx+2,fpy+5]],
          letter_width: 5
