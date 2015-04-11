@@ -43,7 +43,7 @@ function findLetter(focalPoint, letter) {
       return {
          points: [[fpx,fpy+1],[fpx,fpy+2],[fpx,fpy+3],[fpx,fpy+4],[fpx+1,fpy+5],[fpx+2,fpy+5],[fpx+3,fpy+5],[fpx+4,fpy+4],
                   [fpx+4,fpy+3],[fpx+3,fpy+3],[fpx+1,fpy],[fpx+2,fpy],[fpx+3,fpy]],
-         letter_width: 4
+         letter_width: 5
       }
    } else if (x == "h") { // Letter h
       return {
@@ -139,7 +139,7 @@ function findLetter(focalPoint, letter) {
    } else if (x == "x") { // Letter x
       return {
          points: [fp,[fpx+1,fpy+1],[fpx+2,fpy+2],[fpx+3,fpy+1],[fpx+4,fpy],[fpx+2,fpy+3],[fpx+1,fpy+4],
-                  [fpx,fpy+5],[fpx,fpy+5],[fpx+3,fpy+4],[fpx+4,fpy+5]],
+                  [fpx,fpy+5],[fpx,fpy+5],[fpx+3,fpy+4],[fpx+4,fpy+5],[fpx+3,fpy+5],[fpx+1,fpy+5]],
          letter_width: 5
       }
    } else if (x == "y") { // Letter y
@@ -153,7 +153,33 @@ function findLetter(focalPoint, letter) {
          letter_width: 4
       }
    } else {
-      return []
+      if (findSymbol(focalPoint,x) == []) {
+         return [];
+      } else {
+         return findSymbol(focalPoint,x);
+      }
+   }
+}
+
+function findSymbol(focalPoint, symbol) {
+   var x = symbol.toLowerCase()
+
+   var fp = focalPoint;
+   var fpx = fp[0];
+   var fpy = fp[1];
+
+   if (x == ".") {
+      return {
+         points: [[fpx,fpy+5]],
+         letter_width: 1
+      }
+   } else if ("-") {
+      return {
+         points: [[fpx,fpy+3],[fpx+1,fpy+3],[fpx+2,fpy+3]],
+         letter_width: 3
+      }
+   } else {
+      return [];
    }
 }
 
