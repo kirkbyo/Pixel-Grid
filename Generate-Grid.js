@@ -1,15 +1,15 @@
 var grid = document.getElementById('Pixel-Grid');
 
-function GenerateInnerRow() {
+function GenerateInnerRow(colums) {
    var rowFrag = document.createDocumentFragment();
    var innerRow = document.createElement("div");
    innerRow.innerHTML = AppendCellDivs()
 
    function AppendCellDivs() {
-      // Appends 32 Divs that act has cells
+      // Appends Divs that act has cells
       var count = 0
       var divArr = ""
-      while (count != 47) {
+      while (count != colums) {
          divArr += "<div></div>";
          count += 1;
       }
@@ -23,7 +23,7 @@ function GenerateInnerRow() {
    return rowFrag
 }
 
-function GenerateRow() {
+function GenerateRow(colums) {
    var rowFrag = document.createDocumentFragment();
    var row = document.createElement("div");
    row.innerHTML = "<div></div>"
@@ -32,15 +32,15 @@ function GenerateRow() {
       rowFrag.appendChild(row.firstChild);
    }
 
-   rowFrag.children[0].appendChild(GenerateInnerRow());
+   rowFrag.children[0].appendChild(GenerateInnerRow(colums));
 
    grid.insertBefore(rowFrag, grid.childNodes[0]);
 }
 
-function GenerateGrid() {
+function GenerateGrid(settings) {
    var rows = 0
-   while (rows != 10) {
+   while (rows != settings.rows) {
       rows += 1
-      GenerateRow()
+      GenerateRow(settings.colums)
    }
 }
