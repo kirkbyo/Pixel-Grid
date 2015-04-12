@@ -1,4 +1,5 @@
-#Pixel-Grid { // Grid Element
+#Pixel-Grid { /* Grid Element */
+   /* Makes not selectable */
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -6,14 +7,14 @@
   user-select: none;
 }
 
-#Pixel-Grid div { // Grid Row
-  margin-top: -2px;
+#Pixel-Grid div { /* Grid Row */
+   margin-top: -2px;
 }
 
-#Pixel-Grid div div { // Grid Cell
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #8e44ad;
-  background-color: #9b59b6;
+#Pixel-Grid div div { /* Grid Cell */
+   display: inline-block; /* Display Type */
+   width: 20px; /* cell Width */
+   height: 20px; /* Cell Height */
+   border: 1px solid #8e44ad; /* Border around the cell */
+   background-color: #9b59b6; /* Cell Background Color */
 }

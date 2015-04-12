@@ -1,9 +1,17 @@
+/** findLetter
+ * Finds the letter and returns it's points
+ * @param {Array<Int>} focalPoint
+ * @param {String} letter
+ * @return {Object}
+ *** Object: points, letter_width
+ */
 function findLetter(focalPoint, letter) {
-   var x = letter.toLowerCase()
+   var x = letter.toLowerCase();
 
-   var fp = focalPoint;
-   var fpx = fp[0];
-   var fpy = fp[1];
+   var fp = focalPoint; // Shorthand (Saves space)
+   var fpx = fp[0]; // x coordinate
+   var fpy = fp[1]; // y coordinate
+
    if (x == "a") { // Letter a
       return {
          points:  [[fpx+1,fpy],[fpx+2,fpy],[fpx+3,fpy],[fpx,fpy+1],[fpx,fpy+2],[fpx,fpy+3],[fpx,fpy+4],[fpx,fpy+5],[fpx+4,fpy+1],[fpx+4,fpy+2],
@@ -153,14 +161,22 @@ function findLetter(focalPoint, letter) {
          letter_width: 4
       }
    } else {
-      if (findSymbol(focalPoint,x) == []) {
-         return [];
+      // If its not a letter, check symbols
+      if (findSymbol(focalPoint,x) == []) { // if symbol exists
+         return []; // Returns blank array
       } else {
-         return findSymbol(focalPoint,x);
+         return findSymbol(focalPoint,x); // Finds Symbol
       }
    }
 }
 
+/** findSymbol
+ * Finds the symbol and returns it's points
+ * @param {Array<Int>} focalPoint
+ * @param {String} symbol
+ * @return {Object}
+ *** Object: points, letter_width
+ */
 function findSymbol(focalPoint, symbol) {
    var x = symbol.toLowerCase()
 
@@ -173,12 +189,16 @@ function findSymbol(focalPoint, symbol) {
          points: [[fpx,fpy+5]],
          letter_width: 1
       }
-   } else if ("-") {
+   } else if (x == "-") {
       return {
          points: [[fpx,fpy+3],[fpx+1,fpy+3],[fpx+2,fpy+3]],
          letter_width: 3
       }
    } else {
-      return [];
+      // If the symbol does exist it will default to "-"
+      return {
+         points: [[fpx,fpy+3],[fpx+1,fpy+3],[fpx+2,fpy+3]],
+         letter_width: 3
+      }
    }
 }
