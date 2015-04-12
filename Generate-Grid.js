@@ -1,4 +1,7 @@
 var grid = document.getElementById('Pixel-Grid');
+var cell_highlighted = "red";
+var cell_default_background = "green";
+var grid_width = 0;
 
 function GenerateInnerRow(colums) {
    var rowFrag = document.createDocumentFragment();
@@ -38,9 +41,27 @@ function GenerateRow(colums) {
 }
 
 function GenerateGrid(settings) {
-   var rows = 0
+   var rows = 0;
+   cell_highlighted = settings.cell_highlighted;
+
+   grid_width = settings.colums
    while (rows != settings.rows) {
-      rows += 1
-      GenerateRow(settings.colums)
+      rows += 1;
+      GenerateRow(settings.colums);
+   }
+
+   cell_default_background = getDefaultCellBackground();
+}
+
+function getDefaultCellBackground() {
+   var gridRows = grid.childNodes;
+   var selectedRow = gridRows[0];
+   var selectedCell = selectedRow.childNodes[0];
+
+   if (selectedCell != undefined) {
+      var compStyle = getComputedStyle(selectedCell,null).getPropertyValue("background-color");
+      return compStyle;
+   } else {
+      return "green"
    }
 }
