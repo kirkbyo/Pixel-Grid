@@ -50,5 +50,5 @@ Are you interested in contributing to `Pixel-Grid.js`? That’s awesome! I will 
 
 ## License
 
-This project is licensed under the [MIT License](#).
+This project is licensed under the [MIT License](https://github.com/kirkbyo/Pixel-Grid/blob/master/LICENSE.md).
 
