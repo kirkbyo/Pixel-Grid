@@ -23,15 +23,24 @@ function drawLetterAtXY(focalPoint, letter, color) {
  * Draws a word to the screen based on startPoint
  * @param {Array<Int>} startPoint
  * @param {String} letters
- * @param {String} color
+ * @param {String} color (Optional)
  */
 function drawWord(startPoint, letters, color) {
    var cords = [startPoint]; // Cords to hold all the letters position
    var letters = letters.split(""); // Converts passed Word to Array
+   var cell_color = "red"; // Default Color
+
+   // Checks if color was passed or not
+   if (color == undefined) { // Use Defined Color
+      cell_color = cell_highlighted
+   } else { // Use custom color
+      cell_color = color
+   }
+
    for (var index=0; index<letters.length; index++) { // Loops threw each letter
       var letter = letters[index]; // Assigns a letter from the letters Array
       if (index == 0) { // Checks if this is the first time
-         drawLetterAtXY(startPoint, letter, color); // Draws the Letter
+         drawLetterAtXY(startPoint, letter, cell_color); // Draws the Letter
 
          // Sets Next Cords
          var letterObject = findLetter(startPoint, letter); // Finds Letters Object
@@ -40,7 +49,7 @@ function drawWord(startPoint, letters, color) {
       } else {
          var last = cords[cords.length -1]; // Finds the last element in the array
          if (CalculateWordWidth(cords) < grid_width) {
-            drawLetterAtXY(last, letter, color); // Draws the letter at the next location
+            drawLetterAtXY(last, letter, cell_color); // Draws the letter at the next location
          }
 
          var letterObject = findLetter(last, letter); // Gets Letter Object
