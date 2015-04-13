@@ -50,7 +50,7 @@ function GenerateRow(colums) {
       rowFrag.appendChild(row.firstChild);
    }
 
-   rowFrag.children[0].appendChild(GenerateInnerRow(colums));
+   rowFrag.childNodes[0].appendChild(GenerateInnerRow(colums));
 
    grid.insertBefore(rowFrag, grid.childNodes[0]);
 }
