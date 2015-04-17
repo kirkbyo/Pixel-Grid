@@ -1,9 +1,28 @@
-var grid = document.getElementById('Pixel-Grid'); // Get Grid from DOM
-
 // Public Grid Properties
 var cell_highlighted = "red"; // Cell Highlighted colored
 var cell_default_background = "green"; // Grid background (Will be changed)
 var grid_width = 0; // Width of the Grid
+
+var grid = "" // Get Grid from DOM
+
+/** GenerateGrid
+ * Generates complete grid
+ * @param {Object} settings
+ *** Object: colums, rows, cell_highlighted
+ */
+function GenerateGrid(settings) {
+   var rows = 0;
+   cell_highlighted = settings.cell_highlighted;
+   grid_width = settings.colums;
+   grid = document.getElementById(setting.id); // Get Grid from DOM
+
+   while (rows != settings.rows) {
+      rows += 1;
+      GenerateRow(settings.colums);
+   }
+
+   cell_default_background = getDefaultCellBackground();
+}
 
 /** GenerateInnerRow
  * Generates a collection of <div>s to be inserted to the row
@@ -53,24 +72,6 @@ function GenerateRow(colums) {
    rowFrag.childNodes[0].appendChild(GenerateInnerRow(colums));
 
    grid.insertBefore(rowFrag, grid.childNodes[0]);
-}
-
-/** GenerateGrid
- * Generates complete grid
- * @param {Object} settings
- *** Object: colums, rows, cell_highlighted
- */
-function GenerateGrid(settings) {
-   var rows = 0;
-   cell_highlighted = settings.cell_highlighted;
-   grid_width = settings.colums;
-
-   while (rows != settings.rows) {
-      rows += 1;
-      GenerateRow(settings.colums);
-   }
-
-   cell_default_background = getDefaultCellBackground();
 }
 
 /** getDefaultCellBackground
