@@ -14,7 +14,7 @@ function GenerateGrid(settings) {
    var rows = 0;
    cell_highlighted = settings.cell_highlighted;
    grid_width = settings.colums;
-   grid = document.getElementById(setting.id); // Get Grid from DOM
+   grid = document.getElementById(settings.id); // Get Grid from DOM
 
    while (rows != settings.rows) {
       rows += 1;
